@@ -1,0 +1,49 @@
+.services {
+  height: 50vh; //fallback option
+  height: calc(var(--vh, 1vh) * 50);
+  background-color: $white;
+  position: relative;
+
+  &-navigation {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 6;
+    padding: 3.2rem;
+    box-sizing: border-box;
+
+    @include media("<=tablet") {
+      display: none;
+    }
+
+    .services-arrow {
+      background-color: rgba($color: #000000, $alpha: 0.4);
+      width: 7.2rem;
+      height: 7.2rem;
+      border-radius: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      svg {
+        color: $white;
+        width: 2.8rem;
+        height: 2.8rem;
+      }
+      &.disabled {
+        opacity: 0.3;
+      }
+    }
+  }
+
+  .row {
+    
+
+    @include media("<=tablet") {
+      flex-direction: column;
+    }
+  }
+}
