@@ -6,7 +6,7 @@
     Photography Agency
     <br />
     <br />
-    <a href="https://photospire.netlify.app/">View Demo</a>
+    <a href="https://photospire.netlify.app/" target="_blank">View Demo</a>
     ·
     <a href="https://github.com/hrshainik/photospire/issues">Report Bug</a>
     ·
