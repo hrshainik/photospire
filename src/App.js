@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Header from "./components/Header";
 import "./styles/App.scss";
 import gsap from "gsap";
@@ -11,15 +11,36 @@ import { Route, Routes } from "react-router-dom";
 import Navigation from "./components/Navigation";
 
 function App() {
-  let vh = window.innerHeight * 0.01;
-  document.documentElement.style.setProperty("--vh", `${vh}px`);
-
   //preventing reload flash
   gsap.to("body", 0, { css: { visibility: "visible" } });
+
+  const [dimensions, setDimensions] = useState({
+    height: window.innerHeight,
+    width: window.innerWidth,
+  });
+
+  useEffect(() => {
+    let vh = dimensions.height * 0.01;
+    document.documentElement.style.setProperty("--vh", `${vh}px`);
+
+    const HandleResize = () => {
+      setDimensions({
+        height: window.innerHeight,
+        width: window.innerWidth,
+      });
+    };
+
+    window.addEventListener("resize", HandleResize);
+
+    return () => {
+      window.removeEventListener("resize", HandleResize);
+    };
+  }, [dimensions]);
 
   return (
     <>
       <Header />
+      {console.log(dimensions)}
       <div className="app">
         <Routes>
           <Route path="/" element={<Home />} />
