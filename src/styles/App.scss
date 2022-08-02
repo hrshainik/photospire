@@ -6,6 +6,7 @@
 @import "./components/services.scss";
 @import "./components/service.scss";
 @import "./components/introOverlay.scss";
+@import "./components/navigation.scss";
 
 body,
 html {
@@ -61,4 +62,10 @@ html {
     display: flex;
     height: 100%;
   }
+}
+
+.app {
+  z-index: 2;
+  transform: translateY(0);
+  position: relative;
 }
