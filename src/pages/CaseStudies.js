@@ -2,8 +2,12 @@ import React from "react";
 
 const CaseStudies = () => {
   return (
-    <div>
-      <h1>This is the case studies page.</h1>
+    <div className="page">
+      <div className="container">
+        <div className="page-wrapper">
+          <h2>This is case studies page.</h2>
+        </div>
+      </div>
     </div>
   );
 };

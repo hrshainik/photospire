@@ -50,7 +50,7 @@ function App() {
 
   return (
     <>
-      <Header />
+      <Header dimensions={dimensions} />
       <div className="app">
         <Routes>
           <Route path="/" element={<Home />} />

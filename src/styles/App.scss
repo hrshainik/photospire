@@ -69,3 +69,18 @@ html {
   transform: translateY(0);
   position: relative;
 }
+
+.page {
+  background-color: $white;
+}
+
+.page-wrapper {
+  min-height: 100vh;
+  padding: 0 32px;
+  display: flex;
+  align-items: center;
+
+  @include media("<=phone") {
+    padding: 0 16px;
+  }
+}

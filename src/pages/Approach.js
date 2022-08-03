@@ -2,8 +2,12 @@ import React from "react";
 
 const Approach = () => {
   return (
-    <div>
-      <h1>This is the approach page.</h1>
+    <div className="page">
+      <div className="container">
+        <div className="page-wrapper">
+          <h2>This is approach page.</h2>
+        </div>
+      </div>
     </div>
   );
 };
