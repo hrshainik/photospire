@@ -10,6 +10,17 @@ import About from "./pages/About";
 import { Route, Routes } from "react-router-dom";
 import Navigation from "./components/Navigation";
 
+function debounce(fn, ms) {
+  let timer;
+  return () => {
+    clearTimeout(timer);
+    timer = setTimeout(() => {
+      timer = null;
+      fn.apply(this, arguments);
+    }, ms);
+  };
+}
+
 function App() {
   //preventing reload flash
   gsap.to("body", 0, { css: { visibility: "visible" } });
@@ -23,24 +34,23 @@ function App() {
     let vh = dimensions.height * 0.01;
     document.documentElement.style.setProperty("--vh", `${vh}px`);
 
-    const HandleResize = () => {
+    const debouncedHandleResize = debounce(function handleResize() {
       setDimensions({
         height: window.innerHeight,
         width: window.innerWidth,
       });
-    };
+    }, 1000);
 
-    window.addEventListener("resize", HandleResize);
+    window.addEventListener("resize", debouncedHandleResize);
 
     return () => {
-      window.removeEventListener("resize", HandleResize);
+      window.removeEventListener("resize", debouncedHandleResize);
     };
   }, [dimensions]);
 
   return (
     <>
       <Header />
-      {console.log(dimensions)}
       <div className="app">
         <Routes>
           <Route path="/" element={<Home />} />
